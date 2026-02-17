@@ -1,0 +1,9 @@
+{
+  "version": "0.1.0",
+  "rules": [
+    {"id": "ingest_allow", "effect": "allow", "action": "ingest", "scope": "sensor.write"},
+    {"id": "admin_update_only", "effect": "deny", "action": "update_apply", "unless_role": "admin"}
+  ],
+  "retention_days": 30,
+  "data_masking": ["location"]
+}
