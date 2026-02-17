@@ -1,0 +1,44 @@
+openapi: 3.1.0
+info:
+  title: Seraphis DNA API
+  version: 0.1.0
+servers:
+  - url: http://localhost:8080
+paths:
+  /health:
+    get:
+      responses:
+        '200':
+          description: ok
+  /v1/sensors/ingest:
+    post:
+      parameters:
+        - in: header
+          name: x-api-key
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [sensor_id, ts, temperature_c, humidity_pct]
+      responses:
+        '200': { description: ingested }
+  /v1/sensors/summary:
+    get:
+      responses:
+        '200': { description: summary }
+  /v1/quantum/run:
+    post:
+      responses:
+        '200': { description: quantum result }
+  /update/check:
+    get:
+      responses:
+        '200': { description: update state }
+  /update/apply:
+    post:
+      responses:
+        '200': { description: apply result }

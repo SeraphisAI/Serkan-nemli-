@@ -1,0 +1,5 @@
+- Domain assumed: IoT sensor network edge + gateway analytics.
+- Target runtime: local/docker first; k8s-ready via container image.
+- Priority order assumed: latency > security > cost > simplicity > reliability.
+- Auth default: API key with role header for policy gating.
+- Telemetry default: disabled and anonymized when enabled.
